@@ -1,7 +1,7 @@
 #Scrolldeck
 
 This is an adaptation of
-[the scrolldeck project page](http://johnpolacek.github.com/scrolldeck.js/)
+[the scrolldeck project](http://johnpolacek.github.com/scrolldeck.js/)
 for a particular presentation deck.
 
 
