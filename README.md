@@ -1,10 +1,9 @@
 #Scrolldeck
 
-A jQuery plugin for making scrolling presentation decks
+This is an adaptation of
+[the scrolldeck project page](http://johnpolacek.github.com/scrolldeck.js/)
+for a particular presentation deck.
 
-For more info, check out [the scrolldeck project page](http://johnpolacek.github.com/scrolldeck.js/)
-
-[Follow me on Twitter](http://twitter.com/johnpolacek)
 
 
 ## License
@@ -14,6 +13,7 @@ Dual licensed under the MIT license (below) and [GPL license](http://www.gnu.org
 <small>
 MIT License
 
+Copyright (c) 2014 Brian Grossman
 Copyright (c) 2012 John Polacek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
