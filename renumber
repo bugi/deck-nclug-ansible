@@ -1,0 +1,85 @@
+#!/bin/bash
+# arguments:
+#	the filenames you want renumbered
+# assumptions:
+#	filenames will be sorted properly already
+#	naming convention: ####.whatever
+
+FROM=( "$@" )
+multiple=...
+
+if [ "${#FROM[@]}" -ge 1000 ]
+then
+	multiple=1
+elif [ "${#FROM[@]}" -ge 100 ]
+then
+	multiple=10
+elif [ "${#FROM[@]}" -ge 10 ]
+then
+	multiple=100
+elif [ "${#FROM[@]}" -ge 1 ]
+then
+	multiple=1000
+elif [ "${#FROM[@]}" -eq 0 ]
+then
+	echo "No files to renumber." 1>&2
+	exit 1
+fi
+
+dir="$( dirname "${FROM[0]}" )"
+for f in "${FROM[@]}"
+do
+	_dir="$( dirname "$f" )"
+	if [ "$_dir" != "$dir" ]
+	then
+		echo "only works on files in the same directory ($dir vs $_dir)" 1>&2
+		exit 1
+	fi
+	dir="$_dir"
+done
+
+redo=true
+D=( "${FROM[@]}" )
+i=1
+while $redo
+do
+	if [ "$i" != 1 ]
+	then
+		echo ====
+	fi
+	i=1
+	FROM=( "${D[@]}" )
+	D=()
+	redo=false
+	for f in "${FROM[@]}"
+	do
+		dir="$(dirname "$f")"
+		f="$(basename "$f")"
+		fn_wo_number="${f#*.}"
+		fn_number=$(( i * multiple ))
+		n="$( printf '%04d' $fn_number )"
+		to="$n.$fn_wo_number"
+		if [ "$dir/$f" = "$dir/$to" ]
+		then
+			D+=( "$dir/$to" )
+			echo "skipping $dir/$f because it's already named properly"
+		else
+			while [ -e "$dir/$to" ]
+			do
+				redo=true
+				fn_number=$(( fn_number + 1 ))
+				n="$( printf '%04d' $fn_number )"
+				to="$n.$fn_wo_number"
+			done
+			echo mv "$dir/$f" "$dir/$to"
+			mv "$dir/$f" "$dir/$to"
+			D+=( "$dir/$to" )
+		fi
+		i=$(( i + 1 ))
+		while [ $(( i * multiple )) -le $n ]
+		do
+			i=$(( i + 1 ))
+		done
+
+	done
+done
