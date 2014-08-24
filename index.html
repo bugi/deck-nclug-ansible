@@ -1,14 +1,18 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"> 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<title>scrolldeck.js</title>
-	
-	<link rel="stylesheet" href="css/normalize.css" type="text/css">
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="author" href="https://plus.google.com/107766061849006545830"/>
-	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>ansible for nclug</title>
+
+	<link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<link rel="author" href="plus.google.com/107232890922656215803"/>
+
 	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/jquery.scrollTo-1.4.3.1.min.js"></script>
 	<script src="js/jquery.scrollorama.js"></script>
@@ -16,125 +20,1089 @@
 	<script src="js/jquery.scrolldeck.js"></script>
 </head>
 <body>
-	<a href="https://github.com/johnpolacek/scrolldeck.js">
+	<!-- a href="https://github.com/bugi/deck-nclug-ansible">
 		<img style="position: absolute; top: 0; right: 0; border: 0; z-index: 999999999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" alt="Fork me on GitHub" />
-	</a>
-	
-	<div id="header">
-		<a href="#howtouse" class="nav-button">How to Use</a>
-		<a href="#examples" class="nav-button">Examples</a>
-		<a href="#credits" class="nav-button">Credits</a>
-	</div>
+	</a -->
 
-	<div class="slide" id="landing">
-		<div id="instructions">
-			Use left/right arrow to change slides
-		</div>
-		<h1 id="title">scrolldeck</h1>
-		<p><em><small>created by <a href="http://johnpolacek.com">Chicago Web Developer John Polacek.</a><br>
-			I work at at <a href="http://www.auctionsbycellular.com">AuctionsByCellular</a>.<br>
-			We make <a href="http://www.auctionsbycellular.com/mobile-bidding/">mobile bidding</a> and <a href="http://www.auctionsbycellular.com/auction-software-fundraising-events/">auction software</a> for charities.</small></em></p>
-		<p>
-			<a href="https://twitter.com/johnpolacek" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @johnpolacek</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		</p>
-		<p>A jQuery plugin for making scrolling presentation decks <br />
-		<small>For example: <a href="decks/responsive">animations</a>, <a href="decks/infographics">fullscreen images</a> or <a href="decks/parallax">parallaxing</a></small></p>  
-		<p id="powered"><small>Powered by <a href="http://johnpolacek.github.com/scrollorama">Scrollorama</a></small></p>
-		<p>
-			<small>
-				Download: 
-				<a class="download" href="https://github.com/johnpolacek/scrolldeck.js/zipball/master">zip</a>
-				<a class="download" href="https://github.com/johnpolacek/scrolldeck.js/tarball/master">tar</a>
-			</small>
-		</p>
-	</div>
-	
-	<div class="slide" id="howtouse">
-		<h1>How to Use</h1>
-		<p>Build a web page with each slide as a div.
-			<small class="pro-tip">Pro-Tip: <a href="http://responsivenews.co.uk/post/13925578846/fluid-grids-orientation-resolution-independence">Use rem&rsquo;s</a> to make content scale <br />(resize this window to see)</small>
-		</p>
-	</div>
 
-	<div class="slide">
-		<p>Create section navigation by linking to slide id&rsquo;s <small>(optional)</small></p>
-		<p>After linking all the required scripts (jQuery, Scrollorama, scrollTo, easing &amp; scrolldeck), create the slide deck on document ready event.</p>
-		<p><blockquote><pre>
-$(document).ready(function() {
-  var deck = new $.scrolldeck();
-});</pre></blockquote></p>
-	</div>
 
-	<div class="slide">
-		<p>You can configure the settings as follows<br /><small>(example has the default config values assigned)</small></p>
-		<p><blockquote><pre>
-$(document).ready(function() {
-  var deck = new $.scrolldeck({
-    buttons: '.nav-button',
-    slides: '.slide',
-    duration: 600,
-    easing: 'easeInOutExpo',
-	offset: 0
-  });
-});</pre></blockquote></p>
-		<p><small class="pro-tip">Pro-Tip: To hide the scrollbar, set <code>html{overflow:hidden;}</code> in your css</small>
-		</p>
-	</div>
-	
-	<div class="slide" id="animations">
-		<p>Add animations to slides by adding the <code>"animate-in"</code> <br />
-		or <code>"animate-build"</code> classes to elements in your slides.</p>
-		<p><blockquote><pre>
-&lt;div class="slide"&gt;
-    &lt;p class="animate-in" data-animation="fly-in-left"&gt;This paragraph will fly in from the left.&lt;/p&gt;
-    &lt;p class="animate-in" data-animation="fly-in-right"&gt;This paragraph will fly in from the right.&lt;/p&gt;
-&lt;/div&gt;
 
-&lt;div class="slide"&gt;
-    &lt;p&gt;This slide will get be &rsquo;pinned&lsquo; to the top of the screen until all the slide animation builds are complete.&lt;/p&gt;
-    &lt;p class="animate-build" data-build="1"&gt;This paragraph will fade in (the default animation)&lt;/p&gt;
-    &lt;p class="animate-build" data-animation="space-in" data-build="2"&gt;This paragraph will fade in while its letter spacing contracts to normal.&lt;/p&gt;
-&lt;/div&gt;
-</pre></blockquote></p>
-		<p><small>Available animations are <code>"fly-in-left"</code>, <code>"fly-in-right"</code>, <br /><code>"space-in"</code> and the default which is <code>"fade-in"</code></small></p>
+<div class="slide" id="landing">
+
+<h1>introduction to</h1>
+<h1><a href="http://docs.ansible.com/">Ansible</a><span style="font-size:50%">,</span></h1>
+<h1>by example</h1>
+<br>
+<br>
+<br>
+<br>
+<hr width="25%">
+<h2>Brian Grossman</h2>
+<hr width="25%">
+<br>
+<a href="https://github.com/bugi/deck-nclug-ansible">https://github.com/bugi/deck-nclug-ansible</a>
+
+<div class="page">2000.title</div>
+</div>
+
+
+
+
+<div class="slide" id="what is ansible">
+
+<!--
+-x- Here's what I plan to cover.
+-x- A bit about ansible and the problem space it covers.
+-x- Then some examples.
+-->
+
+<h1>coverage</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li><a href="#about">about ansible</a><ul></ul></li>
+	<li>examples<ul>
+		<li><a href="#modes.cli">command line one-offs</a></li>
+		<li><a href="#modes.playbook">playbooks</a></li>
+		<li>a complex example</li>
+		</ul></li>
+	<li><a href="#inventory">inventory</a><ul></ul></li>
+	<li><a href="#end.notes">resources and references</a><ul></ul></li>
+	</ul>
 	</div>
-	
-	<div class="slide" id="examples">
-		<div class="container">
-			<h1>Examples</h1>
-			<p><a href="http://johnpolacek.github.com/scrolldeck.js/decks/responsive/">Slide Animations Example</a><br /><small>(What The Heck Is Responsive Web Design)</small></p>
-			<p><a href="http://johnpolacek.github.com/scrolldeck.js/decks/infographics">Image Slides Example</a><br /><small>(Infographics Are Cool)</small></p>
-			<p><a href="http://johnpolacek.github.com/scrolldeck.js/decks/parallax">jQuery Parallax Plugin Example</a></p>
-		</div>
+<div class="page">3000.coverage</div>
+</div>
+
+
+
+
+<a id="about"></a>
+
+
+
+
+<div class="slide" id="ansible is">
+
+<!--
+-x- Ansible is a tool for automating
+-x- deployment, configuration and orchestration.
+-x-
+-x- One thing ansible does well I think compared to
+-x- other tools is that it will build systems for you.
+-x-
+-x- I looked recently on puppet's website and found that
+-x- it would talk to AWS and VMWare.  But that was it.
+-x- Hopefully I just can't read their documentation very well.
+-x-
+-x- But with ansible, building the hosts can be just as
+-x- automated as configuring hosts once they exist.
+-x-
+-x- Orchestration is important.  I'll get back to that.
+-->
+
+
+<h1>ansible is</h1>
+
+<p>
+	a fictional machine capable of instantaneous or superluminal communication (<i>Rocannon's World</i>, Ursula K. Le Guin, 1966)
+</p>
+
+<div class="centerable">
+	<ul>
+	<li>Well <a href="http://docs.ansible.com/">documented</a>.</li>
+	<li>a tool for automating<ul style="margin-bottom:1rem">
+		<li>deployment of software and systems</li>
+		<li>configuration of software and systems</li>
+		<li>orchestration of deployment and configuration</li>
+		</ul></li>
+	<li>systems, as in it will <a href="http://docs.ansible.com/list_of_cloud_modules.html">talk to</a><ul>
+		<li>aws</li>
+		<li>docker</li>
+		<li>libvirt</li>
+		<li>rackspace</li>
+		<li>and several others</li>
+		</ul></li>
+	</ul>
+</div>
+<div class="page">4000.about/0200.ansible.is</div>
+</div>
+
+
+
+
+<div class="slide" id="automation-and-me">
+
+<!--
+-x- Just in case it's not blindingly obvious,
+-x- ansible addresses much the same problem space
+-x- as several other tools.
+-x-
+-x- My guess is many of you have also built similar
+-x- tools for your own use.  I for one am glad to
+-x- finally have one I like that I didn't build myself.
+-->
+
+<h1>ansible is not</h1>
+<br>
+<div class="centerable">
+	Ansible addresses the same problem space as
+	<ul>
+
+	<li>puppet</li>
+	<li>salt</li>
+	<li>chef</li>
+	<li>rex</li>
+	<li>cfengine</li>
+
+	</ul>
+
+</div>
+<div class="page">4000.about/0300.ansible.is.not</div>
+</div>
+
+
+
+
+<div class="slide" id="what is ansible">
+
+<!--
+-x- Compared to most similar tools, ansible is quite young.
+-x- I started applying it in earnest about a year ago, and
+-x- can happily report that the rough edges are now pretty
+-x- well smoothed.
+-x-
+-x- Here's a few things that set ansible apart.
+-x-
+-x- It just needs ssh and python.
+-x-
+-x- It's agentless, so you push rather than pull.
+-x- Among other things, that means you don't have to
+-x- worry about all the puppet daemons hitting your repo
+-x- all at once.
+-x-
+-x- You tell it the desired states in yaml.
+-x-
+-x-
+-x-
+-->
+
+
+<h1>how ansible is different</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>new on the scene: 2012<ul></ul></li>
+	<li>minimal infrastructure: ssh and python<ul></ul></li>
+	<li>push / agentless<ul>
+		<li>most others are pull</li>
+		<li>ansible can also pull, but push is the norm</li>
+		</ul></li>
+	<li>yaml<ul>
+		<li>desired states are specified in yaml</li>
+		<li>yaml is easy to read and write</li>
+		<li>salt also uses yaml, but not as well IMO</li>
+		</ul></li>
+	<li>python<ul>
+		<li>base is python</li>
+		<li>modules just have to talk JSON</li>
+		</ul></li>
+	</ul>
 	</div>
-	
-	<div class="slide" id="credits">
-		<h1>Credits</h1>
-		<p>scrolldeck.js &amp; <a href="http://johnpolacek.github.com/scrollorama">Scrollorama</a> by <a href="http://twitter.com/johnpolacek">John Polacek</a></p>
-		<p><a href="http://demos.flesler.com/jquery/scrollTo/">jQuery ScrollTo</a> by <a href="https://twitter.com/#!/flesler">Ariel Flesler</a></p>
-		<br />
-		<p><small>Inspired by other cool slide deck js libraries:<br />
-			<a href="http://dressrush.com/blog/post/12506021124/dressrush-online-pitch-deck">Pitch Deck</a>,
-			<a href="http://imakewebthings.github.com/deck.js/">deck.js</a> and
-			<a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a>
-		</small></p>
+<div class="page">4000.about/0400.how.ansible.is.different</div>
+</div>
+
+
+
+
+<div class="slide" id="orchestration">
+
+<!--
+-x- Here's what I mean by orchestration.
+-x- Say you want to deploy your new build to a lot of hosts.
+-x-
+-x- You can tell ansible to deploy to a certain number at a
+-x- time and to fail the whole thing if a given fraction of
+-x- them fail to deploy successfully.
+-x-
+-x- The second list is what might happen for each host.
+-x- Rebuilding the host isn't very common, but with docker
+-x- now on the scene I think we'll start seeing quite a bit
+-x- more of that.
+-x-
+-->
+
+
+
+<h1>orchestration</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>scenario:<ul>
+		<li>5003 hosts</li>
+		<li>deploy to <small>{{X}}</small> at a time</li>
+		<li>fail the deployment if <small>{{Y}}</small>% fail</li>
+		</ul></li>
+	<li>for each host, <small>{{X}}</small> hosts in parallel:<ul>
+	<li>remove service from load balancer</li>
+	<li>instantiate new, clean VM or container</li>
+	<li>pull The Build from jenkins, git, etc</li>
+	<li>install</li>
+	<li>configure</li>
+	<li>sanity test</li>
+	<li>add service to load balancer</li>
+	</ul></li>
+	</ul>
 	</div>
-	
-	<img src="img/resize.png" id="resize-graphic" />
-	
+<div class="page">4000.about/0500.orchestration</div>
+</div>
+
+
+
+
+<div class="slide" id="automation">
+
+<!--
+-x- The point of all of this is automation.
+-x-
+-x- Here's a couple buzzphrases for you.
+-x-
+-x- I'm probably not the only person in this room
+-x- who's worked with people who feared automation
+-x- for job security.
+-x-
+-x- I find the mindset pretty alien.  But then I've
+-x- long embraced laziness as a virtue.
+-x-
+-x- I like being able to check my infrastructure into version control!
+-x- I like being able to go on vacation!
+-x-
+-x-
+-->
+
+
+
+
+<p>The point of which is</p>
+<h1>automation</h1>
+<br>
+<p>Some of the advantages of which are</p>
+<br>
+<div class="centerable">
+<ul>
+	<li>infrastructure as data (and/or code)</li>
+	<li>people leave but knowledge stays</li>
+</ul>
+</div>
+<p>Automate everything!</p>
+
+<div class="page">4000.about/0600.automation</div>
+</div>
+
+
+
+
+<div class="slide" id="automation-and-me">
+
+<!--
+-x- We're just about to get to the examples.
+-x-
+-x- But I wouldn't want to leave you with the idea that
+-x- I'm poking at puppet and others blindly.  Now, it has
+-x- been long enough that I wouldn't remember great
+-x- detail about any of these others without a bit
+-x- of reimmersion, but:
+-x-
+-x- I have used puppet in anger.
+-x- I used salt in rebellion.
+-x- I tried salt on sufferance.
+-x- I fiddled around with rex briefly.
+-x- I did manage to avoid cfengine,
+-x- which is probably why I wrote my own
+-x- automation tools a few times.
+-x-
+-x- And ansible is far and away the best automation tool I've used.
+-x-
+-x-
+-x-
+-x- Oh and by the way, I hear the local python meetup is
+-x- planning a deathmatch between ansible and salt.
+-x- It looks like Sean will be the ansible partisan.
+-x-
+-x-
+-->
+
+
+<h1>automation and me</h1>
+<br>
+<div class="centerable">
+	<ul>
+
+	<li>rolled my own several times
+		<br>
+		(and enjoyed it)
+		</li>
+
+	<li>used <a href="https://puppetlabs.com/">puppet</a> in anger</li>
+	<li>used <a href="http://saltstack.com">salt</a> in rebellion</li>
+	<li>tried <a href="https://getchef.com">chef</a> on sufferance</li>
+	<li>fiddled around with <a href="http://rexify.org">rex</a></li>
+
+	<li>love ansible</li>
+	</ul>
+</div>
+<br>
+<br>
+<br>
+(I hear the local
+<a href="http://www.meetup.com/Python-Web-Development/">python meetup</a>
+will do a compare/contrast of salt and ansible soon.)
+<div class="page">4000.about/0700.automation.and.me</div>
+</div>
+
+
+
+
+<div class="slide" id="ansible is awesome">
+
+<!--
+-x- Ansible is what I was looking for all along.
+-x-
+-x- It's quick to get started with.
+-x- It applies well to tasks both large and small.
+-x- It has minimal infrastructure requirements.
+-x-
+-x- Speaking of which...
+-->
+
+
+
+<h1>ansible is awesome</h1>
+<small>Ansible is far and away the best automation tool I've used.</small><br>
+<br>
+<div class="centerable">
+<ul>
+	<li>quick to get started</li>
+	<li>easy to use day to day</li>
+	<li>useful for big tasks and little</li>
+	<li>powerful</li>
+	<li>minimal infrastructure requirement</li>
+</ul>
+</div>
+<div class="page">4000.about/0800.ansible.is.awesome</div>
+</div>
+
+
+
+
+<div class="slide" id="prerequisites">
+
+<!--
+-x- SSH and python.
+-x-
+-x- Even so, there are caveates...
+-->
+
+
+
+<h1>prerequisites</h1>
+<br>
+<div class="centerable">
+<ul>
+	<li>ssh</li>
+	<li>python 2.[67] for control host</li>
+	<li>python 2.[4-7] for managed nodes</li>
+</ul>
+</div>
+<div class="page">4000.about/0900.prerequisites</div>
+</div>
+
+
+
+
+<div class="slide" id="prerequisites caveat">
+
+<!--
+-x- Be careful if you're usiing an ancient python.
+-x- Python-simplejson is included with 2.5 and later.
+-x-
+-x- Centos 6 and earlier use an ancient ssh, so won't
+-x- do ansible justice in speed.
+-x-
+-x- Worry not, YAML is easy to pick up.
+-x- There will be examples later on,
+-x- but now on to some yaml-less examples.
+-x-
+-->
+
+
+
+<h1>prerequisites caveate</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>add python-simplejson if python &le; 2.5<ul></ul></li>
+	<li>epel &le; 6 have an ancient openssh<ul>
+		<li>without ControlPersist,</li>
+		<li>so it won't be as fast</li>
+		</ul></li>
+	<li>a basic understanding of yaml is useful<ul>
+		<li>expressive as json,</li>
+		<li>but built for humans to read and write.</li>
+		<li><a href="http://yaml.org/">yaml.org</a></li>
+		<li>examples later</li>
+		</ul></li>
+	</ul>
+	</div>
+<div class="page">4000.about/1000.prerequisites.caveate</div>
+</div>
+
+
+
+
+<div class="slide" id="modes.cli">
+
+<!--
+-x- Ansible has two main usages, command-line and playbooks.
+-x-
+-x- Playbooks is where you get into orchestration.
+-x-
+-x- Command-line mode is more like a batch-mode parallel ssh.
+-x- It's handy for one-offs and for learning.
+-x-
+-x- Speaking of which...
+-x-
+-x-
+-x-
+-x-
+-->
+
+
+<h1>modes</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li><b>straight command-line
+		<br>(for simple one-offs)
+		<br>
+		<br>
+		</b>
+		</li>
+	<li>playbooks
+		<br>(for complex tasks and orchestration)
+		</li>
+	</ul>
+	</div>
+<div class="page">5000.cli/1000.modes.cli</div>
+</div>
+
+
+
+
+<div class="slide" id="eg.cli">
+
+<!--
+-x- ... for your first example
+-x-
+-x- ... PING!
+-x- I should note though that this isn't an ICMP ping, but
+-x- just checks that the communication channel works as
+-x- expected.
+-x-
+-x-
+-x- Second up is asking the remote host its name.
+-x-
+-x- My laptop is called stomp.
+-x-
+-x-
+-x- In both cases we're talking to localhost.
+-x-
+-x- The default module that ansible will use in command-line mode
+-x- is the "command" mode.
+-x-
+-x- Here's a couple more examples.
+-x-
+-x-
+-->
+
+<h1>command-line</h1>
+
+<div class="animate-build" data-build="1">
+&bull;&bull;&bull; ping &bull;&bull;&bull;
+<br>
+&bull;&bull;&bull; (ssh, not ICMP) &bull;&bull;&bull;
+<blockquote><pre>
+% ansible localhost -m ping
+<div style="color:green">localhost | success >> {
+    "changed": false,
+    "ping": "pong"
+}</div></pre></blockquote>
+</div>
+
+<br>
+<div class="animate-build" data-build="2">
+&bull;&bull;&bull; who are you? &bull;&bull;&bull;
+<blockquote><pre>
+% ansible localhost -m command -a hostname
+<div style="color:green">localhost | success | rc=0 >>
+stomp</div></pre></blockquote>
+</div>
+
+<div class="page">5000.cli/2000.cli.ping</div>
+</div>
+
+
+
+
+<div class="slide" id="eg.cli.2">
+
+<!--
+-x- Here's how to bootstrap your ancient python into
+-x- speaking json.  Only the "raw" module can do this.
+-x- It's very limited.
+-x-
+-x- The "shell" module is like the system(3) system call,
+-x- while the command and raw modules are more like exec(3).
+-x-
+-->
+
+
+<br>
+
+&bull;&bull;&bull; raw for when the remote doesn't have a sane python &bull;&bull;&bull;
+<div class="animate-build" data-build="2">
+(oh wait, this is Debian)
+</div>
+<div class="animate-build" data-build="1" data-animation="fly-in-left">
+	  <blockquote><pre>
+% ansible localhost -m raw -a 'yum install python-simplejson -y'
+<div style="color:red">localhost | FAILED | rc=127 >>
+/bin/sh: 1: yum: not found</div></pre></blockquote>
+</div>
+
+<br>
+&bull;&bull;&bull; command is the default module (-m) &bull;&bull;&bull;
+<div class="animate-build" data-build="3" data-animation="fly-in-right">
+&bull;&bull;&bull; or there's shell &bull;&bull;&bull;
+	  <blockquote><pre>
+% ansible localhost -m shell -a 'hostname > /tmp/j ; cat /tmp/j'
+<div style="color:green">localhost | success | rc=0 >>
+stomp</div></pre></blockquote>
+</div>
+
+<div class="page">5000.cli/3000.raw.and.shell</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Those three modules are special.  Unlike just about all
+-x- the others, they're not idempotent.
+-x-
+-x- But idempotence is important.  In fact here's a whole
+-x- slide on idempotence.
+-x-
+-x- Idempotence means that ansible will avoid making a
+-x- change unless it's actually needed.  Such modules
+-x- can be run more than once without ill effect.
+-x-
+-x-
+-x- For example...
+-->
+
+<h1>idempotence</h1>
+<h3>(not unique to ansible)</h3>
+<h3>(but important)</h3>
+<br>
+<br>
+
+<div class="centerable" style="width: 70%;">
+<ul>
+	<li>Modules are idempotent.</li>
+	<li>They will seek to avoid changing the
+		system unless a change needs to be made.</li>
+	<li>They can safely be run more than once.</li>
+</ul>
+<br>
+(The shell module and friends are not idempotent.)
+<br>
+<br>
+<br>
+An example...
+</div>
+
+<div class="page">5000.cli/4000.idempotence</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- There's a module to set a line in a file.
+-x-
+-x- Earlier we put our hostname into /tmp/j.
+-x- Now we'll edit that file.
+-x-
+-x- Notice how the returned json says that the
+-x- action caused change.
+-x-
+-->
+
+
+
+<h2>set a line in a file</h2>
+<br>
+<div class="animate-build" data-build="1">
+	<blockquote><pre>
+% cat /tmp/j
+stomp
+
+% ansible localhost -m lineinfile -a 'regexp=^st line=st0mp dest=/tmp/j'
+<div style="color:green">localhost | success >> {
+    "backup": "",
+    "changed": <font size="5rem"><b>true</b></font>,
+    "msg": "line replaced"
+}</div>
+% cat /tmp/j
+st<font size="5rem">0</font>mp</pre></blockquote>
+</div>
+<div class="page">5000.cli/5000.lineinfile.1</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Here's the same thing again.
+-x-
+-x- But ansible says it didn't change anything.
+-x-
+-x- It didn't just write over the file with the same thing.
+-x- It noticed that the file wouldn't be changed by
+-x- the action, so no action was necessary.
+-x-
+-x-
+-->
+
+
+<h2>again</h2>
+<br>
+<blockquote><pre>
+% cat /tmp/j
+st0mp
+
+% ansible localhost -m lineinfile -a 'regexp=^st line=st0mp dest=/tmp/j'
+<div style="color:green">localhost | success >> {
+    "backup": "",
+    "changed": <font size="5rem"><b>false</b></font>,
+    "msg": ""
+}</div>
+% cat /tmp/j
+st0mp</pre></blockquote>
+<div class="page">5000.cli/6000.lineinfile.2</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Let's delete /tmp/j.
+-x-
+-x- In this case, the module is "file".  You would
+-x- also use file for chmod-ing and chown-ing
+-x- and symlinking.
+-x-
+-x- Here we give file two arguments, the path of interest
+-x- and what state we want it in.
+-x-
+-->
+
+
+<h2>delete the file</h2>
+<br>
+<blockquote><pre>
+% cat /tmp/j
+st0mp
+
+% ansible localhost -m file -a 'path=/tmp/j <b>state=absent</b>'
+<div style="color:green">localhost | success >> {
+    "changed": <font size="5rem"><b>true</b></font>,
+    "path": "/tmp/j",
+    "state": "absent"
+}</div>
+% ls -l /tmp/j
+/bin/ls: cannot access /tmp/j: No such file or directory</pre></blockquote>
+<div class="page">5000.cli/7000.delete.file</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Here's a couple more useful command-line tricks before
+-x- we go on to playbooks.
+-x-
+-x- First, it's a lot easier to grep if you use one-line.
+-x-
+-x-
+-->
+
+
+<h2>again, with less noise</h2>
+<br>
+
+<blockquote><pre>
+% ansible localhost -m file -a 'path=/tmp/j state=absent' \
+	<font size="5rem"><b>--one-line</b></font>
+<div style="color:green;font-size:2.7rem;">localhost | success >> {"changed": <font size="5rem"><b>false</b></font>, "path": "/tmp/j", "state": "absent"}</div></pre></blockquote>
+
+<div class="animate-build" data-build="1">
+<br><br>
+<h3>handy for groups of hosts</h3>
+<blockquote><pre>
+% ansible doublestomp -i hosts -a hostname --one-line |grep rc=0
+localhost | success | <span style="color:red">rc=0</span> | (stdout) stomp
+stomp | success | <span style="color:red">rc=0</span> | (stdout) stomp</pre></blockquote>
+</div>
+
+<div class="page">5000.cli/8000.one-line</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- On the other hand, if you operate on a lot of hosts
+-x- you might want to record the results for later
+-x- processing.  Meet the tree.
+-x-
+-x- Any questions before we move on to playbooks?
+-->
+
+
+
+<h2>or record for posterity</h2>
+<br>
+<blockquote><pre>
+% ansible localhost -m file -a 'path=/tmp/j state=absent' \
+	--one-line <font size="5rem"><b>--tree=my_tree</b></font>
+<div style="color:green;font-size:2.7rem;">localhost | success >> {"changed": false, "path": "/tmp/j", "state": "absent"}</div></pre></blockquote>
+
+<div class="animate-build" data-build="1">
+	  <blockquote><pre>
+% find my_tree/ -type f
+my_tree/localhost</pre></blockquote>
+
+	  <blockquote><pre>
+% cat my_tree/localhost
+{
+"changed": false,
+"path": "/tmp/j",
+"state": "absent"
+}</pre></blockquote>
+</div>
+
+<div class="page">5000.cli/9000.tree</div>
+</div>
+
+
+
+
+<div class="slide" id="modes.playbook">
+
+<!--
+-x- Playbooks is where we get into orchestrating
+-x- multiple tasks.
+-x-
+-->
+
+
+
+<h1>modes</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>straight command-line
+		<br>(for simple one-offs)
+		<br>
+		<br>
+		</li>
+	<li><b>playbooks
+		<br>(for complex tasks and orchestration)
+		</b>
+		</li>
+	</ul>
+	</div>
+<div class="page">6000.playbook/1000.modes.playbooks</div>
+</div>
+
+
+
+
+<div class="slide" id="eg.playbook">
+
+<!--
+-x- Here's some yaml for you.
+-x-
+-x- There's our friend localhost.
+-x- And some tasks for him.
+-x- We'll delete his buddy /tmp/j
+-x- and ask who ansible thinks he is.
+-x-
+-x- Note how each task gets a name.
+-->
+
+
+<h1>playbook</h1>
+<blockquote><pre>
+% cat site.yml
+---
+
+- hosts: localhost
+  tasks:
+
+    - name: /tmp/j deserves this, honest
+      file: path=/tmp/j state=absent
+
+    - name: identify!
+      debug: msg="{{ inventory_hostname }}"
+</pre></blockquote>
+<div class="page">6000.playbook/2000.playbook.1</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Ignore the GATHERING FACTS.  That's just ansible
+-x- figuring out where your ethernet ports are and whatnot.
+-x- It can be turned off if you don't need it.
+-x-
+-x- First up, /tmp/j got deleted.  That was a change though,
+-x- so it's noted in orange.
+-x-
+-x- The second task though, I bet you expected the message
+-x- to say stomp.  In this case though it's localhost
+-x- because that's what we called it.  That's its
+-x- inventory_hostname you might say.
+-x-
+-x- And we wouldn't want to ignore the summary.
+-->
+
+
+<blockquote><pre>
+% echo st0mp > /tmp/j
+</pre></blockquote>
+<blockquote><pre>
+% ansible-playbook -i hosts site.yml
+
+PLAY [localhost] *************************************************
+
+GATHERING FACTS **************************************************
+<span style="color:green">ok: [localhost]</span>
+
+TASK: [/tmp/j deserves this, honest] *****************************
+<span style="color:orange">ok: [localhost]</span>
+
+TASK: [identify!] ************************************************
+<span style="color:green">ok: [localhost] => {
+    "msg": "localhost"
+}</span>
+
+PLAY RECAP *******************************************************
+<span style="color:orange">localhost</span>        : <span style="color:green">ok=3</span>    <span style="color:orange">changed=1</span>    unreachable=0    failed=0   
+</pre></blockquote>
+<div class="page">6000.playbook/3000.playbook.1.run</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Here's another playbook.
+-x-
+-x- Instead of listing tasks, we list a role.
+-x- Using roles, we can split up tasks into reusable chunks.
+-x-
+-x- This role's pretty simple.  It just has a couple of tasks.
+-x-
+-x- The tasks here first call stat, then tell us the result.
+-->
+
+
+
+<h1>another playbook</h1>
+<blockquote><pre>
+% cat site.yml
+---
+- hosts: doublestomp
+  gather_facts: False
+  roles:
+    - example2
+</pre></blockquote>
+
+<!--
+<blockquote><pre>
+% find roles/ -type f
+roles/example2/tasks/main.yml
+</pre></blockquote>
+-->
+
+<div class="animate-build" data-build="1">
+
+<blockquote><pre>
+% cat roles/example2/tasks/main.yml
+---
+- stat: path=/etc/hosts
+  register: st
+
+- name: tell about it
+  debug: msg="{{ st.stat.pw_name }} {{ st.stat.md5 }}"
+</pre></blockquote>
+</div>
+<div class="page">6000.playbook/4000.playbook.2</div>
+</div>
+
+
+
+
+<div class="slide">
+
+<!--
+-x- Pretty boring I know, but did you notice I used
+-x- a group of hosts instead of just localhost?
+-x-
+-x- Incidentally, you can tell stat to not compute
+-x- the md5.  That's handy when you want to stat
+-x- a large file.
+-x-
+-x- Now about that host group...
+-->
+
+
+
+<blockquote><pre>
+% ansible-playbook -i hosts site.yml
+
+PLAY [doublestomp] ******************************************************
+
+TASK: [example2 | stat path=/etc/hosts] ************************
+<span style="color:green">ok: [stomp]
+ok: [localhost]</span>
+
+TASK: [example2 | tell about it] *******************************
+<span style="color:green">ok: [localhost] => {
+    "msg": "root 8745e97bcd300e2cb3d3e267e6ed01f8"
+}
+ok: [stomp] => {
+    "msg": "root 8745e97bcd300e2cb3d3e267e6ed01f8"
+}</span>
+
+PLAY RECAP *****************************************************
+<span style="color:green">localhost    : ok=2</span>    changed=0    unreachable=0    failed=0   
+<span style="color:green">stomp        : ok=2</span>    changed=0    unreachable=0    failed=0   
+</pre></blockquote>
+<div class="page">6000.playbook/5000.playbook.2.run</div>
+</div>
+
+
+
+
+<div class="slide" id="inventory">
+
+<!--
+-x- Here's the short version.
+-x-
+-x- I'm tired though.
+-->
+
+<h1>inventory</h1>
+<blockquote><pre>
+% cat hosts
+[doublestomp]
+localhost
+stomp
+</pre></blockquote>
+<div class="page">7000.inventory</div>
+</div>
+
+
+
+
+<a id="end.notes"></a>
+
+
+
+
+<div class="slide">
+	an introduction to<br>
+	<a href="http://docs.ansible.com/">Ansible</a>,<br>
+	by example<br>
+	<br>
+	<br>
+	<hr width="25%">
+	Brian Grossman<br>
+	<hr width="25%">
+	<br>
+	<br>
+	slides at <a href="https://github.com/bugi/deck-nclug-ansible">https://github.com/bugi/deck-nclug-ansible</a>
+	<br>
+	<br>
+	effects derived from scrolldeck, <a href="http://johnpolacek.github.io/scrolldeck.js/">http://johnpolacek.github.io/scrolldeck.js/</a>
+<div class="page">8000.end.notes/2000.title</div>
+</div>
+
+
+
+
+<div class="slide" id="what is ansible">
+<h1>origin of the word</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>An ansible is a fictional machine capable of instantaneous or superluminal communication.</li>
+	<li>Ursula K. Le Guin origininally used the word in <i>Rocannon's World</i>.</li>
+	<li>Many other SF authors have used it since.</li>
+	</ul>
+	</div>
+	<br>
+	<br>
+	<br>
+	(From Wikipedia's article on <a href="http://en.wikipedia.org/wiki/Ansible">ansible</a>.)
+<div class="page">8000.end.notes/3000.ansible.defn</div>
+</div>
+
+
+
+
 	<script>
 	  $(document).ready(function() {
-		  
+
 			var deck = new $.scrolldeck({
 				buttons: '.nav-button',
 				easing: 'easeInOutExpo'
 			});
-			
+
 			// add other animations using the scrolldeck.controller (see Scrollorama plugin)
 			console.log(deck.controller);
 			deck.controller.animate('#instructions',{ duration: 100, property:'opacity', end: 0 });
-		  
+
 	  });
 	</script>
 
