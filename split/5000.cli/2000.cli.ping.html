@@ -1,0 +1,50 @@
+<div class="slide" id="eg.cli">
+
+<!--
+-x- ... for your first example
+-x-
+-x- ... PING!
+-x- I should note though that this isn't an ICMP ping, but
+-x- just checks that the communication channel works as
+-x- expected.
+-x-
+-x-
+-x- Second up is asking the remote host its name.
+-x-
+-x- My laptop is called stomp.
+-x-
+-x-
+-x- In both cases we're talking to localhost.
+-x-
+-x- The default module that ansible will use in command-line mode
+-x- is the "command" mode.
+-x-
+-x- Here's a couple more examples.
+-x-
+-x-
+-->
+
+<h1>command-line</h1>
+
+<div class="animate-build" data-build="1">
+&bull;&bull;&bull; ping &bull;&bull;&bull;
+<br>
+&bull;&bull;&bull; (ssh, not ICMP) &bull;&bull;&bull;
+<blockquote><pre>
+% ansible localhost -m ping
+<div style="color:green">localhost | success >> {
+    "changed": false,
+    "ping": "pong"
+}</div></pre></blockquote>
+</div>
+
+<br>
+<div class="animate-build" data-build="2">
+&bull;&bull;&bull; who are you? &bull;&bull;&bull;
+<blockquote><pre>
+% ansible localhost -m command -a hostname
+<div style="color:green">localhost | success | rc=0 >>
+stomp</div></pre></blockquote>
+</div>
+
+</div>

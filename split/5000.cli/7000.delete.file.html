@@ -1,0 +1,30 @@
+<div class="slide">
+
+<!--
+-x- Let's delete /tmp/j.
+-x-
+-x- In this case, the module is "file".  You would
+-x- also use file for chmod-ing and chown-ing
+-x- and symlinking.
+-x-
+-x- Here we give file two arguments, the path of interest
+-x- and what state we want it in.
+-x-
+-->
+
+
+<h2>delete the file</h2>
+<br>
+<blockquote><pre>
+% cat /tmp/j
+st0mp
+
+% ansible localhost -m file -a 'path=/tmp/j <b>state=absent</b>'
+<div style="color:green">localhost | success >> {
+    "changed": <font size="5rem"><b>true</b></font>,
+    "path": "/tmp/j",
+    "state": "absent"
+}</div>
+% ls -l /tmp/j
+/bin/ls: cannot access /tmp/j: No such file or directory</pre></blockquote>
+</div>

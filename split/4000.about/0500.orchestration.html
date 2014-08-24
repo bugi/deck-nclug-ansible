@@ -1,0 +1,40 @@
+<div class="slide" id="orchestration">
+
+<!--
+-x- Here's what I mean by orchestration.
+-x- Say you want to deploy your new build to a lot of hosts.
+-x-
+-x- You can tell ansible to deploy to a certain number at a
+-x- time and to fail the whole thing if a given fraction of
+-x- them fail to deploy successfully.
+-x-
+-x- The second list is what might happen for each host.
+-x- Rebuilding the host isn't very common, but with docker
+-x- now on the scene I think we'll start seeing quite a bit
+-x- more of that.
+-x-
+-->
+
+
+
+<h1>orchestration</h1>
+<br>
+	<div class="centerable">
+	<ul>
+	<li>scenario:<ul>
+		<li>5003 hosts</li>
+		<li>deploy to <small>{{X}}</small> at a time</li>
+		<li>fail the deployment if <small>{{Y}}</small>% fail</li>
+		</ul></li>
+	<li>for each host, <small>{{X}}</small> hosts in parallel:<ul>
+	<li>remove service from load balancer</li>
+	<li>instantiate new, clean VM or container</li>
+	<li>pull The Build from jenkins, git, etc</li>
+	<li>install</li>
+	<li>configure</li>
+	<li>sanity test</li>
+	<li>add service to load balancer</li>
+	</ul></li>
+	</ul>
+	</div>
+</div>

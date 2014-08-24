@@ -1,0 +1,37 @@
+<div class="slide" id="eg.cli.2">
+
+<!--
+-x- Here's how to bootstrap your ancient python into
+-x- speaking json.  Only the "raw" module can do this.
+-x- It's very limited.
+-x-
+-x- The "shell" module is like the system(3) system call,
+-x- while the command and raw modules are more like exec(3).
+-x-
+-->
+
+
+<br>
+
+&bull;&bull;&bull; raw for when the remote doesn't have a sane python &bull;&bull;&bull;
+<div class="animate-build" data-build="2">
+(oh wait, this is Debian)
+</div>
+<div class="animate-build" data-build="1" data-animation="fly-in-left">
+	  <blockquote><pre>
+% ansible localhost -m raw -a 'yum install python-simplejson -y'
+<div style="color:red">localhost | FAILED | rc=127 >>
+/bin/sh: 1: yum: not found</div></pre></blockquote>
+</div>
+
+<br>
+&bull;&bull;&bull; command is the default module (-m) &bull;&bull;&bull;
+<div class="animate-build" data-build="3" data-animation="fly-in-right">
+&bull;&bull;&bull; or there's shell &bull;&bull;&bull;
+	  <blockquote><pre>
+% ansible localhost -m shell -a 'hostname > /tmp/j ; cat /tmp/j'
+<div style="color:green">localhost | success | rc=0 >>
+stomp</div></pre></blockquote>
+</div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="slide">
+
+<!--
+-x- Ignore the GATHERING FACTS.  That's just ansible
+-x- figuring out where your ethernet ports are and whatnot.
+-x- It can be turned off if you don't need it.
+-x-
+-x- First up, /tmp/j got deleted.  That was a change though,
+-x- so it's noted in orange.
+-x-
+-x- The second task though, I bet you expected the message
+-x- to say stomp.  In this case though it's localhost
+-x- because that's what we called it.  That's its
+-x- inventory_hostname you might say.
+-x-
+-x- And we wouldn't want to ignore the summary.
+-->
+
+
+<blockquote><pre>
+% echo st0mp > /tmp/j
+</pre></blockquote>
+<blockquote><pre>
+% ansible-playbook -i hosts site.yml
+
+PLAY [localhost] *************************************************
+
+GATHERING FACTS **************************************************
+<span style="color:green">ok: [localhost]</span>
+
+TASK: [/tmp/j deserves this, honest] *****************************
+<span style="color:orange">ok: [localhost]</span>
+
+TASK: [identify!] ************************************************
+<span style="color:green">ok: [localhost] => {
+    "msg": "localhost"
+}</span>
+
+PLAY RECAP *******************************************************
+<span style="color:orange">localhost</span>        : <span style="color:green">ok=3</span>    <span style="color:orange">changed=1</span>    unreachable=0    failed=0   
+</pre></blockquote>
+</div>

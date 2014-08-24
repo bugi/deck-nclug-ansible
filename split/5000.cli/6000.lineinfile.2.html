@@ -1,0 +1,30 @@
+<div class="slide">
+
+<!--
+-x- Here's the same thing again.
+-x-
+-x- But ansible says it didn't change anything.
+-x-
+-x- It didn't just write over the file with the same thing.
+-x- It noticed that the file wouldn't be changed by
+-x- the action, so no action was necessary.
+-x-
+-x-
+-->
+
+
+<h2>again</h2>
+<br>
+<blockquote><pre>
+% cat /tmp/j
+st0mp
+
+% ansible localhost -m lineinfile -a 'regexp=^st line=st0mp dest=/tmp/j'
+<div style="color:green">localhost | success >> {
+    "backup": "",
+    "changed": <font size="5rem"><b>false</b></font>,
+    "msg": ""
+}</div>
+% cat /tmp/j
+st0mp</pre></blockquote>
+</div>

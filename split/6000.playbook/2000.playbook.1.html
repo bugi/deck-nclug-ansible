@@ -1,0 +1,29 @@
+<div class="slide" id="eg.playbook">
+
+<!--
+-x- Here's some yaml for you.
+-x-
+-x- There's our friend localhost.
+-x- And some tasks for him.
+-x- We'll delete his buddy /tmp/j
+-x- and ask who ansible thinks he is.
+-x-
+-x- Note how each task gets a name.
+-->
+
+
+<h1>playbook</h1>
+<blockquote><pre>
+% cat site.yml
+---
+
+- hosts: localhost
+  tasks:
+
+    - name: /tmp/j deserves this, honest
+      file: path=/tmp/j state=absent
+
+    - name: identify!
+      debug: msg="{{ inventory_hostname }}"
+</pre></blockquote>
+</div>

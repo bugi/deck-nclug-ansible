@@ -1,0 +1,34 @@
+<div class="slide">
+
+<!--
+-x- On the other hand, if you operate on a lot of hosts
+-x- you might want to record the results for later
+-x- processing.  Meet the tree.
+-x-
+-x- Any questions before we move on to playbooks?
+-->
+
+
+
+<h2>or record for posterity</h2>
+<br>
+<blockquote><pre>
+% ansible localhost -m file -a 'path=/tmp/j state=absent' \
+	--one-line <font size="5rem"><b>--tree=my_tree</b></font>
+<div style="color:green;font-size:2.7rem;">localhost | success >> {"changed": false, "path": "/tmp/j", "state": "absent"}</div></pre></blockquote>
+
+<div class="animate-build" data-build="1">
+	  <blockquote><pre>
+% find my_tree/ -type f
+my_tree/localhost</pre></blockquote>
+
+	  <blockquote><pre>
+% cat my_tree/localhost
+{
+"changed": false,
+"path": "/tmp/j",
+"state": "absent"
+}</pre></blockquote>
+</div>
+
+</div>

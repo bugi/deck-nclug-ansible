@@ -1,0 +1,45 @@
+<div class="slide">
+
+<!--
+-x- Here's another playbook.
+-x-
+-x- Instead of listing tasks, we list a role.
+-x- Using roles, we can split up tasks into reusable chunks.
+-x-
+-x- This role's pretty simple.  It just has a couple of tasks.
+-x-
+-x- The tasks here first call stat, then tell us the result.
+-->
+
+
+
+<h1>another playbook</h1>
+<blockquote><pre>
+% cat site.yml
+---
+- hosts: doublestomp
+  gather_facts: False
+  roles:
+    - example2
+</pre></blockquote>
+
+<!--
+<blockquote><pre>
+% find roles/ -type f
+roles/example2/tasks/main.yml
+</pre></blockquote>
+-->
+
+<div class="animate-build" data-build="1">
+
+<blockquote><pre>
+% cat roles/example2/tasks/main.yml
+---
+- stat: path=/etc/hosts
+  register: st
+
+- name: tell about it
+  debug: msg="{{ st.stat.pw_name }} {{ st.stat.md5 }}"
+</pre></blockquote>
+</div>
+</div>

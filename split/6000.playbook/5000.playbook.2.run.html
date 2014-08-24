@@ -1,0 +1,37 @@
+<div class="slide">
+
+<!--
+-x- Pretty boring I know, but did you notice I used
+-x- a group of hosts instead of just localhost?
+-x-
+-x- Incidentally, you can tell stat to not compute
+-x- the md5.  That's handy when you want to stat
+-x- a large file.
+-x-
+-x- Now about that host group...
+-->
+
+
+
+<blockquote><pre>
+% ansible-playbook -i hosts site.yml
+
+PLAY [doublestomp] ******************************************************
+
+TASK: [example2 | stat path=/etc/hosts] ************************
+<span style="color:green">ok: [stomp]
+ok: [localhost]</span>
+
+TASK: [example2 | tell about it] *******************************
+<span style="color:green">ok: [localhost] => {
+    "msg": "root 8745e97bcd300e2cb3d3e267e6ed01f8"
+}
+ok: [stomp] => {
+    "msg": "root 8745e97bcd300e2cb3d3e267e6ed01f8"
+}</span>
+
+PLAY RECAP *****************************************************
+<span style="color:green">localhost    : ok=2</span>    changed=0    unreachable=0    failed=0   
+<span style="color:green">stomp        : ok=2</span>    changed=0    unreachable=0    failed=0   
+</pre></blockquote>
+</div>

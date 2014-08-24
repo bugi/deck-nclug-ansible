@@ -1,0 +1,32 @@
+<div class="slide">
+
+<!--
+-x- There's a module to set a line in a file.
+-x-
+-x- Earlier we put our hostname into /tmp/j.
+-x- Now we'll edit that file.
+-x-
+-x- Notice how the returned json says that the
+-x- action caused change.
+-x-
+-->
+
+
+
+<h2>set a line in a file</h2>
+<br>
+<div class="animate-build" data-build="1">
+	<blockquote><pre>
+% cat /tmp/j
+stomp
+
+% ansible localhost -m lineinfile -a 'regexp=^st line=st0mp dest=/tmp/j'
+<div style="color:green">localhost | success >> {
+    "backup": "",
+    "changed": <font size="5rem"><b>true</b></font>,
+    "msg": "line replaced"
+}</div>
+% cat /tmp/j
+st<font size="5rem">0</font>mp</pre></blockquote>
+</div>
+</div>
