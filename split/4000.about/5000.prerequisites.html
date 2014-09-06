@@ -1,0 +1,49 @@
+<div class="slide" id="prerequisites">
+
+<!--
+-x- Here's a little more detail on prerequisites.
+-x-
+-x- One nice thing about few prerequisites is that
+-x- it's very compatible.
+-x-
+-x- Even so, there are caveates.
+-x-
+-x- (switch)
+-x-
+-x- Be careful if you're using an ancient python.
+-x- Python-simplejson is included with 2.5 and later.
+-x-
+-x- Centos 6 and earlier use an ancient openssh, so won't
+-x- do ansible justice in speed.
+-x-
+-->
+
+
+
+<h1>prerequisites</h1>
+<br>
+<div class="centerable">
+<ul>
+	<li>ssh</li>
+	<li>python 2.[67] for control host</li>
+	<li>python 2.[4-7] for managed nodes</li>
+</ul>
+
+<div class="animate-build" data-build="1">
+<br>
+<h1>caveates</h1>
+<br>
+<ul>
+	<li>add python-simplejson if python &le; 2.5<ul></ul></li>
+	<li>epel &le; 6 have an ancient openssh<ul>
+		<li>without ControlPersist,</li>
+		<li>so it won't be as fast</li>
+		</ul></li>
+</ul>
+</div>
+
+
+
+
+</div>
+</div>
