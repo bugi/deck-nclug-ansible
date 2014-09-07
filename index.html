@@ -29,9 +29,9 @@
 
 <div class="slide" id="landing">
 
-<h1>introduction to</h1>
+<h2>introduction to</h2>
 <h1><a href="http://docs.ansible.com/">Ansible</a><span style="font-size:50%">,</span></h1>
-<h1>by example</h1>
+<h2>by example</h2>
 <br>
 <br>
 <br>
@@ -76,7 +76,7 @@
 
 
 
-<a id="about"></a>
+<a id="intro"></a>
 
 
 
@@ -84,89 +84,94 @@
 <div class="slide" id="ansible is">
 
 <!--
--x- Ansible is a tool for automating
--x- deployment, configuration and orchestration.
--x-
--x- One thing ansible does well I think compared to
--x- other tools is that it will build systems for you.
--x-
--x- I looked recently on puppet's website and found that
--x- it would talk to AWS and VMWare.  But that was it.
--x- Hopefully I just can't read their documentation very well.
--x-
--x- Speaking of which, I find ansible's documentation much
--x- easier to understand than what I found last time I
--x- used puppet in anger.  And don't get me started on chef's.
--x-
--x- But with ansible, building the hosts can be just as
--x- automated as configuring hosts once they exist.
--x-
--x- Orchestration is important.  I'll get back to that.
--->
-
-
-<h1>ansible is</h1>
-
-<div class="centerable">
-	<ul>
-	<li>Well <a href="http://docs.ansible.com/">documented</a>.</li>
-	<li>a tool for automating<ul style="margin-bottom:1rem">
-		<li>deployment of software and systems</li>
-		<li>configuration of software and systems</li>
-		<li>orchestration of deployment and configuration</li>
-		</ul></li>
-	<li>systems, as in it will <a href="http://docs.ansible.com/list_of_cloud_modules.html">talk to</a><ul>
-		<li>aws</li>
-		<li>docker</li>
-		<li>libvirt</li>
-		<li>rackspace</li>
-		<li>and <a href="http://docs.ansible.com/list_of_cloud_modules.html">several others</a></li>
-		</ul></li>
-	</ul>
-</div>
-
-<p>
-	a fictional machine capable of instantaneous or superluminal communication (<i>Rocannon's World</i>, Ursula K. Le Guin, 1966)
-</p>
-
-<div class="page">4000.about/0200.ansible.is</div>
-</div>
-
-
-
-
-<div class="slide" id="automation-and-me">
-
-<!--
--x- Just in case it's not blindingly obvious,
--x- ansible addresses much the same problem space
+-x- Ansible addresses much the same problem space
 -x- as several other tools.
 -x-
--x- My guess is many of you have also built similar
--x- tools for your own use.  I for one am glad to
--x- finally have one I like that I didn't build myself.
+-x- Is everyone familiar with some of these?
+-x-
+-x- Ansible is a tool for automating
+-x-	* deployment
+-x-	* configuration
+-x-	* orchestration
+-x-
+-x-
+-x- The main difference between these tools and ansible is...
 -->
 
-<h1>ansible is not</h1>
+
+<h1>tl;dr</h1>
+
 <br>
 <div class="centerable">
-	<span style="font-size: 4rem">
-	</span>
-	<ul>
-	<li>Ansible addresses the same problem space as</li>
-	<ul>
-
+<ul>
+<li>Ansible is similar to<ul>
 	<li>puppet</li>
 	<li>salt</li>
 	<li>chef</li>
 	<li>rex</li>
 	<li>cfengine</li>
+	</ul>
 
+<li><div class="animate-build" data-build="1">
+	Ansible is
+	a tool for automating<ul>
+	<li><i>deployment</i> of software and systems</li>
+	<li><i>configuration</i> of software and systems</li>
+	<li><i>orchestration</i> of deployment and configuration</li>
 	</ul>
-	</ul>
+</div>
+</li>
+
+</ul>
 
 </div>
-<div class="page">4000.about/0300.ansible.is.not</div>
+
+<div class="page">4000.about/2000.tldr</div>
+</div>
+
+
+
+
+<div class="slide" id="ansible is awesome">
+
+<!--
+-x- ... that I like ansible better than I like those.
+-x-
+-x- I hope that after a little more review then some
+-x- examples you'll see why.
+-x-
+-x- I've tried most of those other tools.
+-x- I've rolled my own.
+-x-
+-x-
+-x- Ansible is far and away the best automation tool I've used.
+-x-
+-x- It's quick to get started with.
+-x- It applies well to tasks both large and small.
+-x- It has minimal infrastructure requirements.
+-x-
+-x-
+-x- I'll touch more on some of these later.
+-->
+
+
+
+<h1>ansible is awesome</h1>
+
+<br>
+<div class="centerable">
+	<ul>
+	<li>Ansible is<ul>
+		<li>quick to <a href="http://docs.ansible.com/intro.html">get started with</a></li>
+		<li>easy to use day to day</li>
+		<li>useful for big tasks and little</li>
+		<li>powerful</li>
+		<li>minimal infrastructure requirement</li>
+		</ul>
+	</ul>
+</div>
+
+<div class="page">4000.about/3000.hype</div>
 </div>
 
 
@@ -190,8 +195,9 @@
 -x- all at once.
 -x-
 -x- You tell it the desired states in yaml.
--x-
--x-
+-x- That's infrastructure as data.
+-x- Your infrastructure is in version control.
+-x- Your infrastructure is repeatable.
 -x-
 -->
 
@@ -217,187 +223,7 @@
 		</ul></li>
 	</ul>
 	</div>
-<div class="page">4000.about/0400.how.ansible.is.different</div>
-</div>
-
-
-
-
-<div class="slide" id="orchestration">
-
-<!--
--x- Here's what I mean by orchestration.
--x- Say you want to deploy your new build to a lot of hosts.
--x-
--x- You can tell ansible to deploy to a certain number at a
--x- time and to fail the whole thing if a given fraction of
--x- them fail to deploy successfully.
--x-
--x- The second list is what might happen for each host.
--x- Rebuilding the host isn't very common, but with docker
--x- now on the scene I think we'll start seeing quite a bit
--x- more of that.
--x-
--->
-
-
-
-<h1>orchestration</h1>
-<br>
-	<div class="centerable">
-	<ul>
-	<li>scenario:<ul>
-		<li>5003 hosts</li>
-		<li>deploy to <small>{{X}}</small> at a time</li>
-		<li>fail the deployment if <small>{{Y}}</small>% fail</li>
-		</ul></li>
-	<li>for each host, <small>{{X}}</small> hosts in parallel:<ul>
-	<li>remove service from load balancer</li>
-	<li>instantiate new, clean VM or container</li>
-	<li>pull The Build from jenkins, git, etc</li>
-	<li>install</li>
-	<li>configure</li>
-	<li>sanity test</li>
-	<li>add service to load balancer</li>
-	</ul></li>
-	</ul>
-	</div>
-<div class="page">4000.about/0500.orchestration</div>
-</div>
-
-
-
-
-<div class="slide" id="automation">
-
-<!--
--x- The point of all of this is automation.
--x-
--x- Here's a couple buzzphrases for you.
--x-
--x- I'm probably not the only person in this room
--x- who's worked with people who feared automation
--x- for job security.
--x-
--x- I find the mindset pretty alien.  But then I've
--x- long embraced laziness as a virtue.
--x-
--x- I like being able to check my infrastructure into version control!
--x- I like being able to go on vacation!
--x-
--x-
--->
-
-
-
-
-<p>The point of which is</p>
-<h1>automation</h1>
-<br>
-<p>Some of the advantages of which are</p>
-<br>
-<div class="centerable">
-<ul>
-	<li>infrastructure as data (and/or code)</li>
-	<li>people leave but knowledge stays</li>
-</ul>
-</div>
-<p>Automate everything!</p>
-
-<div class="page">4000.about/0600.automation</div>
-</div>
-
-
-
-
-<div class="slide" id="automation-and-me">
-
-<!--
--x- We're just about to get to the examples.
--x-
--x- But I wouldn't want to leave you with the idea that
--x- I'm poking at puppet and others blindly.  Now, it has
--x- been long enough that I wouldn't remember great
--x- detail about any of these others without a bit
--x- of reimmersion, but:
--x-
--x- I have used puppet in anger.
--x- I used salt in rebellion.
--x- I tried salt on sufferance.
--x- I fiddled around with rex briefly.
--x- I did manage to avoid cfengine,
--x- which is probably why I wrote my own
--x- automation tools a few times.
--x-
--x- And ansible is far and away the best automation tool I've used.
--x-
--x-
--x-
--x- Oh and by the way, I hear the local python meetup is
--x- planning a deathmatch between ansible and salt.
--x- It looks like Sean will be the ansible partisan.
--x-
--x-
--->
-
-
-<h1>automation and me</h1>
-<br>
-<div class="centerable">
-	<ul>
-
-	<li>rolled my own several times
-		<br>
-		(and enjoyed it)
-		</li>
-
-	<li>used <a href="https://puppetlabs.com/">puppet</a> in anger</li>
-	<li>used <a href="http://saltstack.com">salt</a> in rebellion</li>
-	<li>tried <a href="https://getchef.com">chef</a> on sufferance</li>
-	<li>fiddled around with <a href="http://rexify.org">rex</a></li>
-
-	<li>love ansible</li>
-	</ul>
-</div>
-<br>
-<br>
-<br>
-(I hear the local
-<a href="http://www.meetup.com/Python-Web-Development/">python meetup</a>
-will do a compare/contrast of salt and ansible soon.)
-<div class="page">4000.about/0700.automation.and.me</div>
-</div>
-
-
-
-
-<div class="slide" id="ansible is awesome">
-
-<!--
--x- Ansible is what I was looking for all along.
--x-
--x- It's quick to get started with.
--x- It applies well to tasks both large and small.
--x- It has minimal infrastructure requirements.
--x-
--x- Speaking of which...
--->
-
-
-
-<h1>ansible is awesome</h1>
-<small>Ansible is far and away the best automation tool I've used.</small><br>
-<br>
-<div class="centerable">
-<ul>
-	<li>quick to get started</li>
-	<li>easy to use day to day</li>
-	<li>useful for big tasks and little</li>
-	<li>powerful</li>
-	<li>minimal infrastructure requirement</li>
-</ul>
-</div>
-<div class="page">4000.about/0800.ansible.is.awesome</div>
+<div class="page">4000.about/4000.how.ansible.is.different</div>
 </div>
 
 
@@ -406,9 +232,21 @@ will do a compare/contrast of salt and ansible soon.)
 <div class="slide" id="prerequisites">
 
 <!--
--x- SSH and python.
+-x- Here's a little more detail on prerequisites.
 -x-
--x- Even so, there are caveates...
+-x- One nice thing about few prerequisites is that
+-x- it's very compatible.
+-x-
+-x- Even so, there are caveates.
+-x-
+-x- (switch)
+-x-
+-x- Be careful if you're using an ancient python.
+-x- Python-simplejson is included with 2.5 and later.
+-x-
+-x- Centos 6 and earlier use an ancient openssh, so won't
+-x- do ansible justice in speed.
+-x-
 -->
 
 
@@ -421,48 +259,25 @@ will do a compare/contrast of salt and ansible soon.)
 	<li>python 2.[67] for control host</li>
 	<li>python 2.[4-7] for managed nodes</li>
 </ul>
-</div>
-<div class="page">4000.about/0900.prerequisites</div>
-</div>
 
-
-
-
-<div class="slide" id="prerequisites caveat">
-
-<!--
--x- Be careful if you're usiing an ancient python.
--x- Python-simplejson is included with 2.5 and later.
--x-
--x- Centos 6 and earlier use an ancient ssh, so won't
--x- do ansible justice in speed.
--x-
--x- Worry not, YAML is easy to pick up.
--x- There will be examples later on,
--x- but now on to some yaml-less examples.
--x-
--->
-
-
-
-<h1>prerequisites caveate</h1>
+<div class="animate-build" data-build="1">
 <br>
-	<div class="centerable">
-	<ul>
+<h1>caveats</h1>
+<br>
+<ul>
 	<li>add python-simplejson if python &le; 2.5<ul></ul></li>
 	<li>epel &le; 6 have an ancient openssh<ul>
 		<li>without ControlPersist,</li>
 		<li>so it won't be as fast</li>
 		</ul></li>
-	<li>a basic understanding of yaml is useful<ul>
-		<li>expressive as json,</li>
-		<li>but built for humans to read and write.</li>
-		<li><a href="http://yaml.org/">yaml.org</a></li>
-		<li>examples later</li>
-		</ul></li>
-	</ul>
-	</div>
-<div class="page">4000.about/1000.prerequisites.caveate</div>
+</ul>
+</div>
+
+
+
+
+</div>
+<div class="page">4000.about/5000.prerequisites</div>
 </div>
 
 
@@ -513,7 +328,7 @@ will do a compare/contrast of salt and ansible soon.)
 -x- ... for your first example
 -x-
 -x- ... PING!
--x- I should note though that this isn't an ICMP ping, but
+-x- I should note that this isn't an ICMP ping, but
 -x- just checks that the communication channel works as
 -x- expected.
 -x-
@@ -526,7 +341,7 @@ will do a compare/contrast of salt and ansible soon.)
 -x- In both cases we're talking to localhost.
 -x-
 -x- The default module that ansible will use in command-line mode
--x- is the "command" mode.
+-x- is the "command" module.
 -x-
 -x- Here's a couple more examples.
 -x-
@@ -871,6 +686,8 @@ my_tree/localhost</pre></blockquote>
 -x- and ask who ansible thinks he is.
 -x-
 -x- Note how each task gets a name.
+-x- That's not actually required,
+-x- but it's [* a really good idea *].
 -->
 
 
@@ -1071,6 +888,9 @@ stomp
 	<br>
 	<br>
 	slides at <a href="https://github.com/bugi/deck-nclug-ansible">https://github.com/bugi/deck-nclug-ansible</a>
+	<br>
+	<br>
+	html view at <a href="http://htmlpreview.github.io/?https://github.com/bugi/deck-nclug-ansible/blob/master/index.html">http://htmlpreview.github.io/?https://github.com/bugi/deck-nclug-ansible/blob/master/index.html</a>
 	<br>
 	<br>
 	effects derived from scrolldeck, <a href="http://johnpolacek.github.io/scrolldeck.js/">http://johnpolacek.github.io/scrolldeck.js/</a>
