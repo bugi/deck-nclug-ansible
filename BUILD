@@ -15,7 +15,6 @@ do
 	# echo "<!-- $g -->"
 	echo
 	echo
-	h=$i
 	if [ "$page" = empty ]
 	then
 		cat "$f"
