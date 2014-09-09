@@ -6,9 +6,9 @@ page=numbered
 cd "$(dirname "$(readlink -f "$0")" )"
 
 i=0
-for f in $( find split/ -name \*.html |sort )
+for f in $( find index/ -name \*.html |sort )
 do
-	g="${f#split/}"
+	g="${f#index/}"
 	h="${g%.html}"
 	echo
 	echo
